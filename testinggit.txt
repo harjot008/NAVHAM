@@ -1,3 +1,3 @@
 Hi! its just for testing purposes
 
-Now this is just to demonstrate reset in git
+Now this is just to demonstrate reset in gitgit
