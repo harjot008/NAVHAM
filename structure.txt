@@ -1,0 +1,22 @@
+NAVHAM /
+│── app.py                 # Flask entry point
+│── requirements.txt       # dependencies (Flask, cs50, etc.)
+│── internships.db         # SQLite3 database
+│
+├── models/                # database-related files
+│   └── schema.sql         # SQL schema (tables for candidates & internships)
+│
+├── static/                # CSS, JS, images
+│   ├── css/
+│   │   └── styles.css     # custom CSS
+│   ├── js/
+│   │   └── scripts.js     # custom JS
+│   └── img/               # logos, icons (optional)
+│
+├── templates/             # HTML files (Jinja2 templates for Flask)
+│   ├── layout.html        # base layout (Bootstrap navbar/footer)
+│   ├── index.html         # home page (form for candidate input)
+│   └── results.html       # recommendations page
+│
+└── utils/                 # helper functions
+    └── recommender.py     # rule-based recommendation logic
