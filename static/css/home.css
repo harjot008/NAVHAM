@@ -15,7 +15,7 @@
     box-sizing: border-box;
 }
 
-/* --- NEW: Dynamic Animated Gradient Background --- */
+/* --- Dynamic Animated Gradient Background --- */
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
@@ -27,7 +27,8 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    overflow: hidden; /* Prevents scrollbars from the large background */
+    /* UPDATED: Allows vertical scrolling while preventing horizontal scroll */
+    overflow-x: hidden;
 }
 
 @keyframes gradientAnimation {
@@ -82,7 +83,7 @@ body {
     margin-right: 0.5rem;
 }
 
-/* --- NEW: Frosted Glass Login Card --- */
+/* --- Frosted Glass Login Card --- */
 .login-card {
     background: var(--bg-light-transparent);
     backdrop-filter: blur(20px);
@@ -135,7 +136,7 @@ body {
     box-shadow: 0 4px 15px rgba(245, 124, 0, 0.4);
 }
 
-/* --- NEW: Floating Label Form --- */
+/* --- Floating Label Form --- */
 .input-group {
     position: relative;
     margin-bottom: 2rem;
@@ -162,7 +163,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* This is the magic for the floating label */
 .input-group input:focus + label,
 .input-group input:not(:placeholder-shown) + label {
     top: -1rem;
@@ -209,8 +209,29 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* --- Responsive Design --- */
+/* --- UPDATED: Responsive Design for Mobile --- */
 @media (max-width: 768px) {
-    .branding h1 { font-size: 2rem; }
-    .login-card { padding: 1.5rem; }
+    /* Aligns content to the top on mobile for a natural feel */
+    body {
+        align-items: flex-start;
+    }
+
+    /* Adds some space from the top edge on mobile */
+    .content {
+        padding-top: 2rem;
+    }
+
+    .branding h1 {
+        font-size: 2rem;
+    }
+
+    .login-card {
+        padding: 1.5rem;
+    }
+
+    /* Stacks the trust badges vertically on small screens */
+    .trust-badges {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
