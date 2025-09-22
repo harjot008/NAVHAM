@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS internships (
     location_city TEXT,
     skills_required TEXT,
     stipend INTEGER,
-    duration_months INTEGER,
+    duration_months INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS applications (
