@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - NavDisha Interns</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-section h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .help-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faq-item {
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #667eea;
+        }
+
+        .faq-question {
+            padding: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+
+        .faq-question.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .faq-answer {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .faq-answer.active {
+            padding: 1.25rem;
+            max-height: 500px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .contact-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .quick-links {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-links h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .link-item:hover {
+            background: #f8f9fa;
+            transform: translateX(5px);
+        }
+
+        .link-item i {
+            color: #667eea;
+            width: 20px;
+        }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .steps-list li {
+            counter-increment: step-counter;
+            position: relative;
+            padding: 1rem 0 1rem 3rem;
+            border-left: 2px solid #e9ecef;
+            margin-bottom: 1rem;
+        }
+
+        .steps-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -12px;
+            top: 1rem;
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .steps-list li:last-child {
+            border-left: none;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tip-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .tip-icon {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .resources-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .resource-item:hover {
+            border-color: #667eea;
+            background: #f8f9fa;
+        }
+
+        .resource-icon {
+            font-size: 2rem;
+            color: #667eea;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .resource-content h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .resource-content p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .help-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>NavDisha-Interns</h1>
+            </div>
+            <a href="/dashboard" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Help & Support</h1>
+            <p class="page-subtitle">We're here to help you succeed in your internship journey</p>
+        </div>
+
+        <div class="help-grid">
+            <div class="main-content">
+                <div class="help-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-question-circle"></i>
+                        Frequently Asked Questions
+                    </h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>How do I apply for internships?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To apply for internships:</p>
+                            <ol class="steps-list">
+                                <li>Complete your profile with all required information</li>
+                                <li>Browse through recommended internships on your dashboard</li>
+                                <li>Click "Apply Now" on internships that match your interests</li>
+                                <li>Your application will be submitted directly to the employer</li>
+                                <li>Track your application status in your dashboard</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>How are internships recommended to me?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our AI-powered recommendation system considers:</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Your location preferences (state and city)</li>
+                                <li>Your skills and interests</li>
+                                <li>Your education level</li>
+                                <li>Sector preferences you selected</li>
+                                <li>Stipend and duration preferences</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Can I edit my profile after registration?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! You can update your profile anytime by clicking "Edit Details" on your dashboard. Keeping your profile updated helps us provide better recommendations.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Are all internships paid?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, internships vary in compensation. Some offer stipends while others are unpaid but provide valuable experience and learning opportunities. The stipend information is clearly displayed on each internship card.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>What should I do if I face technical issues?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>If you experience technical issues:</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Try refreshing your browser</li>
+                                <li>Clear your browser cache and cookies</li>
+                                <li>Try using a different browser</li>
+                                <li>Contact our support team using the contact information below</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-lightbulb"></i>
+                        Tips for Success
+                    </h2>
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-user-edit"></i>
+                            </div>
+                            <div class="tip-title">Complete Your Profile</div>
+                            <p>A complete profile increases your chances of getting recommended for relevant internships.</p>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="tip-title">Be Active</div>
+                            <p>Regularly check for new internship opportunities and apply promptly to increase your chances.</p>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="tip-title">Highlight Skills</div>
+                            <p>Keep your skills updated and relevant to the sectors you're interested in.</p>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="tip-title">Stay Connected</div>
+                            <p>Enable notifications to stay updated on new opportunities and application status.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="contact-title">24/7 Support</h3>
+                    <p class="contact-info">Get instant help from our support team</p>
+                    <a href="#" class="contact-btn" onclick="openChatSupport()">
+                        <i class="fas fa-comment"></i> Live Chat
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="contact-title">Email Support</h3>
+                    <p class="contact-info">support@navdisha-interns.gov.in</p>
+                    <a href="mailto:support@navdisha-interns.gov.in" class="contact-btn">
+                        <i class="fas fa-paper-plane"></i> Send Email
+                    </a>
+                </div>
+
+                <div class="quick-links">
+                    <h3><i class="fas fa-external-link-alt"></i> Quick Links</h3>
+                    <a href="/dashboard" class="link-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="/edit-profile" class="link-item">
+                        <i class="fas fa-user-edit"></i>
+                        <span>Edit Profile</span>
+                    </a>
+                    <a href="/internships" class="link-item">
+                        <i class="fas fa-briefcase"></i>
+                        <span>All Internships</span>
+                    </a>
+                    <a href="#" class="link-item" onclick="downloadGuide()">
+                        <i class="fas fa-download"></i>
+                        <span>User Guide (PDF)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="resources-section">
+            <h2 class="section-title">
+                <i class="fas fa-book-open"></i>
+                Additional Resources
+            </h2>
+            
+            <a href="#" class="resource-item" onclick="showVideoTutorials()">
+                <div class="resource-icon">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+                <div class="resource-content">
+                    <h4>Video Tutorials</h4>
+                    <p>Step-by-step video guides on using the platform effectively</p>
+                </div>
+            </a>
+
+            <a href="#" class="resource-item" onclick="showInternshipTips()">
+                <div class="resource-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="resource-content">
+                    <h4>Internship Success Guide</h4>
+                    <p>Tips and best practices for successful internship applications</p>
+                </div>
+            </a>
+
+            <a href="#" class="resource-item" onclick="showCareerResources()">
+                <div class="resource-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="resource-content">
+                    <h4>Career Development Resources</h4>
+                    <p>Tools and resources to help you build your career</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function toggleFaq(element) {
+            const faqItem = element.parentNode;
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = element.querySelector('i');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.querySelector('.faq-question').classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('active');
+                    item.querySelector('.faq-question i').classList.replace('fa-chevron-up', 'fa-chevron-down');
+                }
+            });
+            
+            // Toggle current FAQ item
+            element.classList.toggle('active');
+            answer.classList.toggle('active');
+            
+            if (answer.classList.contains('active')) {
+                icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            } else {
+                icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            }
+        }
+
+        function openChatSupport() {
+            alert('💬 Live chat support will be available soon! For now, please email us at support@navdisha-interns.gov.in');
+        }
+
+        function downloadGuide() {
+            alert('📥 User guide download will be available soon! For now, use the FAQ section for guidance.');
+        }
+
+        function showVideoTutorials() {
+            alert('🎥 Video tutorials are coming soon! Check back later for step-by-step guides.');
+        }
+
+        function showInternshipTips() {
+            alert('📚 Comprehensive internship success guide will be available soon!');
+        }
+
+        function showCareerResources() {
+            alert('🚀 Career development resources are being prepared for you!');
+        }
+
+        // Add loading animation for cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.faq-item, .tip-card, .contact-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
